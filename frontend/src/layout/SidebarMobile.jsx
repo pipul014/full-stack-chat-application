@@ -1,5 +1,7 @@
 import {
   Chat,
+  Users,
+  Presentation,
   ChatTeardropText,
   SignOut,
   UserCircle,
@@ -19,11 +21,23 @@ const NAVIGATION = [
     icon: <Chat size={24} />,
     path: "/dashboard",
   },
+   {
+    key: 1,
+    title: "Groups",
+    icon: <Users size={24} />,
+    path: "/dashboard/groups",
+  },
   {
     key: 1,
     title: "Profile",
     icon: <UserCircle size={24} />,
     path: "/dashboard/profile",
+  },
+  {
+    key: 3,
+    title: "Meeting",
+    icon: <Presentation size={24} />,
+    path: "/dashboard/meeting",
   },
 ];
 

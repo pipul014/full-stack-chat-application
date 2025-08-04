@@ -45,23 +45,42 @@ export default function ChatList({ open, handleClose }) {
     setSearchTerm(e.target.value); // Update searchTerm without delay
   };
 
-  const filteredConversations = conversations
-    .map((el) => {
-      const other_user = el.participants.find((e) => e._id !== user._id);
-      return {
-        key: el._id,
-        id: el._id,
-        name: other_user.name,
-        imgSrc: other_user.avatar,
-        message: "",
-        status: other_user.status,
-      };
-    })
-    .filter((conversation) =>
-      conversation.name
-        .toLowerCase()
-        .includes(debouncedSearchTerm.toLowerCase())
-    ); // Filter based on debouncedSearchTerm
+  // const filteredConversations = conversations
+  //   .map((el) => {
+  //     const other_user = el.participants.find((e) => e._id !== user._id);
+  //     return {
+  //       key: el._id,
+  //       id: el._id,
+  //       name: other_user.name,
+  //       imgSrc: other_user.avatar,
+  //       message: "",
+  //       status: other_user.status,
+  //     };
+  //   })
+  //   .filter((conversation) =>
+  //     conversation.name
+  //       .toLowerCase()
+  //       .includes(debouncedSearchTerm.toLowerCase())
+  //   ); // Filter based on debouncedSearchTerm
+
+  const filteredConversations = (conversations || [])
+  .map((el) => {
+    const other_user = el?.participants?.find((e) => e._id !== user?._id);
+    return {
+      key: el._id,
+      id: el._id,
+      name: other_user?.name || "Unknown",
+      imgSrc: other_user?.avatar,
+      message: "",
+      status: other_user?.status || "Offline",
+    };
+  })
+  .filter((conversation) =>
+    conversation.name
+      .toLowerCase()
+      .includes(debouncedSearchTerm.toLowerCase())
+  );
+
 
   return (
     <>
