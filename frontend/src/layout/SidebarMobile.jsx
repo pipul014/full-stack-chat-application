@@ -28,7 +28,7 @@ const NAVIGATION = [
     path: "/dashboard/groups",
   },
   {
-    key: 1,
+    key: 2,
     title: "Profile",
     icon: <UserCircle size={24} />,
     path: "/dashboard/profile",
