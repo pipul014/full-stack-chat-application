@@ -43,6 +43,11 @@ const session = require("cookie-session"); // Simple cookie-based session middle
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Hello from the root route!");
+});
+
+
 app.use(
   cors({
     origin: "*",
